@@ -5,6 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.1"
 
+gem 'active_model_serializers', '0.10.13'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.2", ">= 7.0.2.2"
 
@@ -53,6 +54,10 @@ gem "image_processing", "~> 1.2"
 gem "brakeman"
 gem "bundler-audit"
 gem "rubocop-rails"
+
+gem 'devise', '4.8.1'
+gem 'devise-jwt', '0.9.0'
+gem 'rack-cors', '1.1.1'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

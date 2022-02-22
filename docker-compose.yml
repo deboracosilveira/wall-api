@@ -13,6 +13,8 @@ services:
       - HISTFILE=/usr/src/app/log/.bash_history 
     depends_on:
       - db
+    links:
+      - mailcatcher
   db:
     image: postgres:13
     ports:
@@ -21,6 +23,11 @@ services:
       - POSTGRES_PASSWORD=password
     volumes:
       - pg_data:/var/lib/postgresql/data
+  mailcatcher:
+    image: dockage/mailcatcher:0.7.1
+    ports:
+      - "1080:1080"
+      - "1025:1025"
 
 volumes:
   pg_data:

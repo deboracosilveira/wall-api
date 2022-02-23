@@ -9,5 +9,8 @@ Rails.application.routes.draw do
   controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
-    confirmations: 'users/confirmations'  }
+    confirmations: 'users/confirmations'
+  }
+
+  resources :posts, only: [:create, :index]
 end

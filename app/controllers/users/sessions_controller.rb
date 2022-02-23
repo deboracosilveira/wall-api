@@ -5,7 +5,7 @@ class Users::SessionsController < Devise::SessionsController
 
   def respond_with(resource, _opts = {})
     render json: {
-      data: UserSerializer.new(resource).serializable_hash,
+      data: UserSerializer.new(resource),
       token: request.env['warden-jwt_auth.token']
     }, status: :ok
   end

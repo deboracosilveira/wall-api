@@ -3,7 +3,6 @@
 class PostSerializer < ActiveModel::Serializer
   attributes :content,
              :created_at,
-             :id,
              :user
 
   def user

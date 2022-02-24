@@ -14,16 +14,16 @@ RSpec.describe Users::RegistrationsController, type: :controller do
     end
   
     describe "check that email" do
-      it "was sent to correct email" do
-        user = FactoryBot.create :user
+      before(:each) do
+        @user = FactoryBot.create(:user)
+      end
 
+      it "was sent to correct email" do
         confirmation_email = Devise.mailer.deliveries.last
-        expect(user.email).to eq confirmation_email.to[0]
+        expect(@user.email).to eq confirmation_email.to[0]
       end
 
       it "contains welcome message" do
-        user = FactoryBot.create :user
-
         confirmation_email = Devise.mailer.deliveries.last
         expect(confirmation_email.body.to_s).to have_content 'Welcome'
       end

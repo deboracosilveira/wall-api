@@ -8,12 +8,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def respond_with(resource, _opts = {})
     if resource.persisted?
       render json: {
-        data: UserSerializer.new(resource),
+        data: { message: "A confirmation email has been sent to your email. Confirm your account to sign in." },
         token: request.env['warden-jwt_auth.token']
       }, status: :ok
     else
       render json: {
-        errors: { message: "User couldn't be created successfully. #{resource.errors.full_messages.to_sentence}" }
+        errors: { message: "User couldn't be created successfully. #{resource.errors.full_messages.to_sentence}." }
       }, status: :unprocessable_entity
     end
   end

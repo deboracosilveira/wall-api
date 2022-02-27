@@ -4,7 +4,7 @@ RSpec.describe "Posts", type: :request do
   describe "POST /posts" do
     @user = FactoryBot.create(:user)
 
-    it "fails to create post without user login" do
+    it "fails to create post without user signin" do
       post "/posts", params: {
         content: "my content",
         user: @user
@@ -16,7 +16,7 @@ RSpec.describe "Posts", type: :request do
       expect(body[:errors][0][:message]).to eq("You need to sign in or sign up before continuing.")
     end
 
-    it "creates a post successfully after confirmed user login" do
+    it "creates a post successfully after confirmed user signin" do
       @user = FactoryBot.create(:user)
       @user.confirm
 

@@ -8,7 +8,7 @@ class ApiFailureApp < Devise::FailureApp
   def json_api_error_response
     self.status        = 401
     self.content_type  = 'application/json'
-    self.response_body = { errors: [{ message: i18n_message }] }.to_json
+    self.response_body = { errors: { message: i18n_message } }.to_json
   end
 end
 
@@ -213,7 +213,7 @@ Devise.setup do |config|
 
   # Defines which strategy will be used to unlock an account.
   # :email = Sends an unlock link to the user email
-  # :time  = Re-enables login after a certain amount of time (see :unlock_in below)
+  # :time  = Re-enables signin after a certain amount of time (see :unlock_in below)
   # :both  = Enables both strategies
   # :none  = No unlock strategy. You should handle unlocking by yourself.
   # config.unlock_strategy = :both
@@ -324,11 +324,11 @@ Devise.setup do |config|
   config.jwt do |jwt|
     jwt.secret = ENV['DEVISE_JWT_SECRET_KEY']
     jwt.dispatch_requests = [
-      ['POST', %r{^/login$}]
+      ['POST', %r{^/signin$}]
     ]
     jwt.revocation_requests = [
-      ['DELETE', %r{^/logout$}]
+      ['DELETE', %r{^/signout$}]
     ]
-    jwt.expiration_time = 30.minutes.to_i
+    jwt.expiration_time = 2_592_000
   end
 end

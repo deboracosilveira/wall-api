@@ -15,7 +15,7 @@ class PostsController < ApplicationController
       render json: { data: PostSerializer.new(post) }, status: :ok
     else
       render json: {
-        errors: { message: "Post couldn't be created successfully. #{post.errors.full_messages.to_sentence}" },
+        errors: { message: "Post couldn't be created successfully. #{post.errors.full_messages.to_sentence}." },
       }, status: :unprocessable_entity
     end
   end

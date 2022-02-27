@@ -1,4 +1,4 @@
-user = User.create!(confirmed_at: DateTime.now
+user = User.create!(confirmed_at: DateTime.now,
                     email: FFaker::Internet.email,
                     name: FFaker::Name.name,
                     password: FFaker::Internet.password)

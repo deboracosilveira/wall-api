@@ -6,9 +6,10 @@ Referring frontend app can be found [here](https://github.com/deboracosilveira/w
 
 ## DEVELOP
 
+[Devise](https://github.com/heartcombo/devise) and [Devise-JWT](https://github.com/waiting-for-dev/devise-jwt) were used for the authentication flow.
 Wall app relies on some environment variables in order to operate correctly.
 For running it locally, create a `.env` file with same variables as [.env.example](.env.example).
-> To generate DEVISE_JWT_SECRET_KEY you can use `rake secret` from [Rails Command Line](https://guides.rubyonrails.org/v4.0/command_line.html).
+> To generate DEVISE_JWT_SECRET_KEY you can use `docker compose run --rm web rake secret` after setting docker.
 
 #### SERVICES
 

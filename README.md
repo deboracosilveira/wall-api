@@ -49,3 +49,4 @@ Wall api uses [RSpec](https://rspec.info/).
 
 ## DEPLOY
 The api is hosted on [Heroku](https://www.heroku.com/) at https://wall-api.herokuapp.com/
+> If you are testing the sign up confirmation email in production, please also check your spam box.
